@@ -1,0 +1,20 @@
+---
+import About from "@components/About.astro";
+import Comments from "@components/Comments/Comments.astro";
+import EmailSubscribe from "../components/EmailSubscribe.astro";
+import Episodes from "@components/Episodes/Episodes.astro";
+import Footer from "@components/Footer/Footer.astro";
+import Header from "@components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Castaway">
+  <main class="px-6 lg:px-14 max-w-[1440px] mx-auto">
+    <Header />
+    <Episodes />
+    <About />
+    <EmailSubscribe />
+    <Comments />
+    <Footer />
+  </main>
+</Layout>

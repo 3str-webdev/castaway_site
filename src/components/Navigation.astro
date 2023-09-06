@@ -1,0 +1,36 @@
+---
+import logo from "@assets/logo.svg";
+
+type NavOption = {
+  title: string;
+  href: string;
+};
+
+let options: NavOption[] = [
+  { title: "Home", href: "#" },
+  { title: "Episodes", href: "#" },
+  { title: "About", href: "#" },
+  { title: "Contact", href: "#" },
+];
+---
+
+<nav class="py-6">
+  <div class="mx-auto flex items-center">
+    <img src={logo.src} />
+    <ul class="hidden sm:flex gap-x-10 ml-auto">
+      {
+        options.map((option, index) => {
+          const isActive = !index;
+          const linkClass = isActive ? "text-teal-600" : "";
+          return (
+            <li>
+              <a href={option.href} class={linkClass}>
+                {option.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</nav>

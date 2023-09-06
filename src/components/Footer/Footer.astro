@@ -1,0 +1,86 @@
+---
+import footerLogoSVG from "@assets/footer-logo.svg";
+import { navLinks, otherLinks, platformsLinks, socialLinks } from "./constants";
+import { classes } from "@shared/lib";
+---
+
+<footer
+  class={classes([
+    "flex flex-wrap",
+    "gap-10 justify-center",
+    "xs:justify-start",
+    "sm:justify-between",
+    "mt-[200px] pb-[100px]",
+  ])}
+>
+  <div>
+    <div class="w-full">
+      <img src={footerLogoSVG.src} alt="logo" />
+    </div>
+    <ul class="mt-5 flex gap-3">
+      {
+        socialLinks.map((social) => {
+          return (
+            <li>
+              <a href={social.href} title={social.alt}>
+                <img src={social.icon_src} alt={social.alt} />
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <div class={classes(["flex gap-10", "xs:gap-20"])}>
+    <ul class={classes(["flex flex-col gap-3", "lg:min-w-[178px]"])}>
+      {
+        navLinks.map((link) => {
+          return (
+            <li>
+              <a
+                href={link.href}
+                title={link.title + " link"}
+                class="leading-7"
+              >
+                {link.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <ul class={classes(["", "flex flex-col gap-3 lg:min-w-[178px]"])}>
+      {
+        otherLinks.map((link) => {
+          return (
+            <li>
+              <a
+                href={link.href}
+                title={link.title + " link"}
+                class="leading-7"
+              >
+                {link.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <ul class="flex gap-4">
+    {
+      platformsLinks.map((platform) => {
+        return (
+          <li>
+            <a href={platform.href} title={platform.alt}>
+              <img src={platform.icon_src} alt={platform.alt} />
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</footer>

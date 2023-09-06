@@ -1,0 +1,21 @@
+---
+import CommentItem from "./CommentItem.astro";
+import { comments } from "./constants";
+import { classes } from "@shared/lib";
+---
+
+<section
+  class={classes([
+    "flex",
+    "gap-4 overflow-x-auto snap-x snap-mandatory mt-20",
+    "md:mt-28",
+    "lg:mt-[150px]",
+    "xl:snap-none xl:overflow-visible xl:flex-wrap xl:justify-center",
+  ])}
+>
+  {
+    comments.map((comm) => {
+      return <CommentItem {...comm} />;
+    })
+  }
+</section>

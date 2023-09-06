@@ -1,0 +1,49 @@
+---
+import startSVG from "@assets/star.svg";
+import type { CommentModel } from "@models";
+import { classes } from "@shared/lib";
+
+type Props = CommentModel;
+
+const { rating, text, author } = Astro.props;
+const roundedRating = Math.round(rating);
+const ratingArr = new Array(roundedRating).fill(0);
+---
+
+<div
+  class={classes([
+    "max-w-[430px] rounded-[32px] bg-black snap-always snap-start",
+    "p-6 min-w-[230px]",
+    "xs:min-w-[300px]",
+    "sm:min-w-[400px]",
+    "md:p-12",
+  ])}
+>
+  <div class="flex gap-[5px]">
+    {
+      ratingArr.map((_, i) => {
+        return <img src={startSVG.src} alt={`rating star ${i + 1}`} />;
+      })
+    }
+  </div>
+  <p
+    class={classes([
+      "mt-5",
+      "text-xl leading-[39px]",
+      "xs:text-2xl",
+      "sm:text-3xl",
+      "md:text-4xl md:leading-[45px]",
+    ])}
+  >
+    {text}
+  </p>
+  <p
+    class={classes([
+      "text-md",
+      "xs:text-lg",
+      "mt-5 md:text-2xl text-neutral-400",
+    ])}
+  >
+    {author}
+  </p>
+</div>

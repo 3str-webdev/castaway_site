@@ -1,0 +1,10 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {}
+
+const { class: newClass, ...props } = Astro.props;
+const className = `px-5 py-6 rounded-md text-lg bg-neutral-800 text-slate-300 w-full ${newClass}`;
+---
+
+<input class={className} {...props} />

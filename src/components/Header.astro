@@ -1,0 +1,45 @@
+---
+import Navigation from "./Navigation.astro";
+import headerPhoto from "@assets/header-photo.png";
+import { classes } from "@shared/lib";
+---
+
+<header>
+  <Navigation />
+  <section
+    class={classes([
+      "relative mt-5 flex items-center justify-center overflow-hidden",
+      "sm:gap-6 sm:justify-start",
+      "md:gap-10",
+      "lg:gap-16",
+    ])}
+  >
+    <div>
+      <img
+        src={headerPhoto.src}
+        alt="Header Photo"
+        class={classes(["brightness-[0.65]", "sm:brightness-100"])}
+      />
+    </div>
+    <div class={classes(["absolute", "sm:static"])}>
+      <h1
+        class={classes([
+          "tracking-wide",
+          "text-4xl leading-[45px] mx-auto",
+          "xs:text-5xl xs:leading-[57px]",
+          "sm:mx-0",
+          "md:text-6xl md:leading-[69px]",
+          "lg:text-7xl lg:leading-[81px]",
+        ])}
+      >
+        Take your<br /> podcast&nbsp;to&nbsp;the<br />
+        <div class="flex gap-2">
+          <span class="overflow-hidden">
+            <p class="text-teal-600">next</p>
+          </span>
+          <font class="font-semibold">level</font>
+        </div>
+      </h1>
+    </div>
+  </section>
+</header>

@@ -1,0 +1,38 @@
+---
+import { classes } from "@shared/lib";
+import type { EpisodeModel } from "../../types/models";
+import Button from "../Button.astro";
+
+type Props = EpisodeModel;
+
+const { id, image, title, subtitle, badges } = Astro.props;
+---
+
+<div class="p-10 rounded-lg bg-black">
+  <div class="flex gap-14">
+    <img
+      src={image}
+      alt={`${title} image`}
+      class={classes(["hidden", "lg:block"])}
+    />
+    <div class="flex flex-col justify-between items-start gap-5">
+      <div>
+        <span class="px-4 py-1 bg-neutral-800 rounded-md">{badges[0]}</span>
+        <p class="mt-12 text-teal-600">Episode {id}</p>
+        <h2
+          class={classes([
+            "mt-5 line-clamp-3",
+            "text-4xl leading-[45px]",
+            "sm:text-5xl sm:leading-[57px]",
+          ])}
+        >
+          {title}
+        </h2>
+        <p class="mt-7 text-lg leading-8 line-clamp-3 text-slate-300">
+          {subtitle}
+        </p>
+      </div>
+      <Button class="">View Episode Details</Button>
+    </div>
+  </div>
+</div>
